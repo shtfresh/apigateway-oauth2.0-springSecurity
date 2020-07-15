@@ -67,5 +67,6 @@ curl -X GET \
 2. webflux和传统servlet在集成spring security oauth2.0的方式上很不一样，很多地方还不是很懂
 3. spring api gateway 拿不到 springsecurity的上下文，只能手动解析jwt token，token解析是通过认证服务器做的，此操作在网关的filter（通过httpHeader 拿到token 手动解析出用户信息）执行前操作
 4. 这个例子中网关需要配置哪uri些是放行（此例中，认证服务器，不需要登陆的微服务两个服务不需要拦截）的，哪些是需要认证的，通过配置认证服务器地址可以校验token的正确性。
+5. 在网关filter手动拿token这种方法，不是特别好，没有完全实现自动化，目前位置webflux和spring security oauth2.0 集成不是太完美，相比组zuul，apigateway集成spring security oauth2.0要复杂很多
 ## 实现步骤
 [Spring Cloud Gateway 基于 OAuth2.0 的身份认证](https://mp.weixin.qq.com/s/4v_wwX0SS7jvOwtO8uiDAw)
